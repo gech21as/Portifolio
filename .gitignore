@@ -1,5 +1,8 @@
-# Backend env file
-backend/.env
+# Ignore environment variables
+back/.env
 
 # Node dependencies
 node_modules/
+
+# Logs
+npm-debug.log*
