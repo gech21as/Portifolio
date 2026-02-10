@@ -1,0 +1,187 @@
+.home {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* ✅ Background removed — now it uses global background */
+}
+
+/* Overlay for contrast */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+background: rgba(5, 5, 5, 0.2);  z-index: 1;
+}
+
+/* Layout wrapper */
+.home-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+  max-width: 1200px;
+  gap: 40px;
+}
+
+/* Left side - text */
+.home-text {
+  color: #fff;
+  flex: 1;
+}
+
+.greeting {
+  font-size: 1.6rem;
+  color: #2180ed;
+  margin-bottom: 10px;
+  animation: fadeIn 1s ease-in-out infinite alternate;
+}
+
+.home-text h1 {
+  font-size: 3rem;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+.home-text h3 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+/* Drop of water effect */
+.drop-name span {
+  display: inline-block;
+  color: #338bf0;
+  font-weight: bold;
+  opacity: 0;
+}
+
+/* Description */
+.home-text p {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  margin-bottom: 25px;
+}
+
+.explore-btn {
+  padding: 12px 25px;
+  font-size: 1.5rem;
+  width: 250px;
+  border: none;
+  border-radius: 10px;
+  background-color: #338bf0;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.explore-btn:hover {
+  background-color: #8573f9;
+  transform: translateY(-3px);
+}
+
+/* Right side - image */
+.home-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-image img {
+  width: 350%;
+  max-width: 450px;  /* ✅ won't exceed this width */
+  height: 450px; /* ✅ won't exceed this height */
+  max-height: 550px;
+  height: auto;       /* keeps aspect ratio */
+  border-radius: 10%;
+  /* border: 2px solid rgba(108, 92, 231, 0.5);
+  box-shadow: 0 0 25px rgba(108, 92, 231, 0.3); */
+  opacity: 0.9;
+  object-fit: cover;
+  margin-left: 10px;
+  margin-top: 40px;
+}
+.image-placeholder {
+  cursor: pointer;
+  width: 350%;
+  max-width: 450px;
+  height: 450px;
+  max-height: 500px;
+  border-radius: 10%;
+  opacity: 0.9;
+  background: #090909;       /* light grey background */
+  color: #a38080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 500;
+  object-fit: cover;
+  margin-left: 10px;
+}
+.image-placeholder:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgb(189, 187, 187);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .home-content {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .home-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .home-image img {
+    width: 70%;
+    max-width: 200px;
+    max-height: 210px;
+  }
+
+  .greeting {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-content {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .home-text h1 {
+    font-size: 2rem;
+  }
+
+  .home-image img {
+    max-width: 250px;
+    width: 80%;
+  }
+
+  .greeting {
+    font-size: 1.3rem;
+  }
+}

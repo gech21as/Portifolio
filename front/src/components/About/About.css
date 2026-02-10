@@ -1,0 +1,159 @@
+.about {
+  position: relative;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #fff;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.7);
+  z-index: 1;
+}
+
+.about-content {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: block;
+  margin-left: 10px;
+  padding: 5px 0;
+  z-index: 2;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  margin-top: 30px;
+  /* margin-left: 200px; */
+  color: #6c5ce7;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: block;
+  padding: 5px;
+}
+
+.intro p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #2d2c2c;
+  padding: 3px;
+  margin-left: 10px;
+  font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 20px;
+  justify-content: center;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.education {
+  margin-top: 40px;
+  margin-left: 20px;
+  padding-top: 10px;
+  font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.education h2 {
+  font-size: 2rem;
+  color: #1c1c1b;
+  margin-bottom: 15px;
+  align-items: center;
+  text-align: center;
+}
+
+.education ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.education li {
+  padding-top: 10px;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #191818;
+  margin-left: 10px;
+  font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.skills {
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.skills h2 {
+  font-size: 2rem;
+  color: #ff7675;
+  margin-bottom: 20px;
+}
+
+/* Skill bars */
+.skill-bar {
+  background: rgba(232, 226, 226, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  position: relative;
+  border: 1px solid rgb(223, 223, 234);
+}
+
+.skill-bar p {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  color: #191818;
+}
+
+.skill-bar span {
+  display: block;
+  height: 25px;
+    width: 100%;
+  width: 0; /* will animate using JS */
+  background-color: #b3b1c4;
+  border-radius: 10pxpx;
+}
+
+.cv-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #6c5ce7, #4834d4);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cv-btn:hover {
+  background: linear-gradient(135deg, #4834d4, #6c5ce7);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .intro h1 {
+    font-size: 2.2rem;
+  }
+  .skills h2, .education h2 {
+    font-size: 1.6rem;
+  }
+}

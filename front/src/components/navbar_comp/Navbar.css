@@ -1,0 +1,173 @@
+/* ===== NAVBAR BASE ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 12px 20px;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: #0f172a;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===== LOGO AREA ===== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+/* Logo Image */
+.logo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo img:hover {
+  transform: rotate(5deg) scale(1.1);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+/* Logo Text */
+.logo h2 {
+  font-size: 1.35rem;
+  color: #ffffff;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo h2:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+.logo h2:hover {
+  transform: rotate(5deg) scale(1.1);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+}
+/* First Name */
+.logo span {
+  color: #338bf0;
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin-right: 5px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo span:hover {
+  color: #7dd3fc;
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
+}
+
+/* ===== NAV LINKS ===== */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #38bdf8;
+}
+
+/* ===== CUSTOM HAMBURGER ===== */
+.menu-icon {
+  display: none;
+  width: 28px;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #ffffff;
+  margin: 5px 0;
+  border-radius: 3px;
+  transition: all 0.35s ease;
+}
+
+/* Hover effect */
+.menu-icon:hover span {
+  background: #38bdf8;
+}
+
+/* CLICK → STAIR EFFECT */
+.menu-icon.open span:nth-child(1) {
+  transform: translateX(6px);
+}
+
+.menu-icon.open span:nth-child(2) {
+  transform: translateX(12px);
+  width: 70%;
+}
+
+.menu-icon.open span:nth-child(3) {
+  transform: translateX(0);
+}
+
+.nav-links li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Icon style */
+.nav-icon {
+  font-size: 1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover icon animation */
+.nav-links li a:hover .nav-icon {
+  transform: translateY(-2px) scale(1.1);
+  color: #38bdf8;
+}
+
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #0f172a;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}

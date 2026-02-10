@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+body {
+  margin: 10px;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  /* background-image: url('./assets/bg.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;  */
+  color: white; 
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+/* Make the whole app take full viewport height */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Flex container for app */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content grows to fill space between navbar and footer */
+.main-content {
+  flex: 1; /* This pushes footer to the bottom */
+}
