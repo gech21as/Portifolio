@@ -44,13 +44,25 @@ const Home = () => {
           <h1>
             <span className="drop-name">
               {/* First Name */}
-              {"ጌታሁን".split("").map((char, i) => (
+              {"I ".split("").map((char, i) => (
+                <span key={i}>{char}</span>
+              ))}
+            </span>{" "}
+            <span className="drop-name">
+              {/* First Name */}
+              {"am ".split("").map((char, i) => (
+                <span key={i}>{char}</span>
+              ))}
+            </span>{" "}
+            <span className="drop-name">
+              {/* First Name */}
+              {"Getahun".split("").map((char, i) => (
                 <span key={i}>{char}</span>
               ))}
             </span>{" "}
             <span className="drop-name">
               {/* Last Name */}
-              {"አሰፋ".split("").map((char, i) => (
+              {"Asefa".split("").map((char, i) => (
                 <span key={i}>{char}</span>
               ))}
             </span>

@@ -20,13 +20,7 @@ const Project = () => {
         "Developed a secure digital system that allows users to access and preserve ancient and historical books using mobile and web platforms.", 
       image: proj2,
     },
-    {
-      id: 3,
-      title: "AI Disease Detection System",
-      description:
-        "Built an AI-powered backend for detecting disease types from image and text data using Node.js and deep learning models.",
-      image: proj3,
-    },
+  
   ];
 
   return (
