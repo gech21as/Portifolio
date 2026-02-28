@@ -9,7 +9,8 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: "http://localhost:5173", // Vite frontend
+  origin: ["http://localhost:5173", "http://localhost:3000"], // Vite frontend and other common ports
+  credentials: true
 }));
 app.use(express.json());
 

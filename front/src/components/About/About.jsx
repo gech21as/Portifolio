@@ -40,28 +40,21 @@ const About = () => {
             🎓 Education
           </h2>
           <ul>
-            <li><strong>University:</strong>
-                <li>
-                      Bachelor of Science in Computer Engineering
-                </li>
-                <li>
-                      Bahir Dar University
-                </li>
-                <li>
-                      Currently a 5th-year student
-                </li>
+            <li>
+              <strong>University:</strong>
+              <ul>
+                <li>Bachelor of Science in Computer Engineering</li>
+                <li>Bahir Dar University</li>
+                <li>Currently a 5th-year student</li>
+              </ul>
             </li>           
-             <li>
+            <li>
               <strong>Secondary & Preparatory Education:</strong>
-                <li>
-                  Chacha Secondary and Preparatory School
-
-                </li>
-                <li>
-                    from the year of 2010 – 2014 in Ethiopian Calendar
-                </li>
+              <ul>
+                <li>Chacha Secondary and Preparatory School</li>
+                <li>from the year of 2010 – 2014 in Ethiopian Calendar</li>
+              </ul>
             </li>
-
           </ul>
         </div>
 

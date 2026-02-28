@@ -11,6 +11,18 @@ export const sendContactMessage = async (req, res) => {
     });
   }
 
+  // Check if environment variables are set
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.error("Missing environment variables:");
+    console.error("EMAIL_USER:", process.env.EMAIL_USER ? "SET" : "NOT SET");
+    console.error("EMAIL_PASS:", process.env.EMAIL_PASS ? "SET" : "NOT SET");
+    
+    return res.status(500).json({
+      success: false,
+      message: "Server configuration error. Please contact administrator.",
+    });
+  }
+
   try {
     // Transporter
     const transporter = nodemailer.createTransport({
@@ -45,10 +57,19 @@ ${message}
     });
   } catch (error) {
     console.error("Email error:", error);
+    console.error("Error details:", error.message);
+    
+    // More specific error messages
+    let errorMessage = "Failed to send message";
+    if (error.code === "EAUTH") {
+      errorMessage = "Authentication failed. Check Gmail credentials.";
+    } else if (error.code === "ECONNECTION") {
+      errorMessage = "Connection failed. Check internet connection.";
+    }
 
     res.status(500).json({
       success: false,
-      message: "Failed to send message",
+      message: errorMessage,
     });
   }
 };

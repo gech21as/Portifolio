@@ -5,6 +5,7 @@ import bg from "../../assets/bg.jpg";
 import profile from "../../assets/pic.jpg"; 
 const Home = () => {
   const [greeting, setGreeting] = useState("");
+  const [backgroundStyle, setBackgroundStyle] = useState({});
 
   // Dynamic greeting
   useEffect(() => {
@@ -12,6 +13,13 @@ const Home = () => {
     if (hour < 12) setGreeting("Good Morning -> ሰላም እንደምን አደርክ/አደርሽ");
     else if (hour < 18) setGreeting("Good Afternoon -> እንደምን ዋልክ/ዋልሽ");
     else setGreeting("Good Evening -> እንደምን አመሸህ/አመሸሽ");
+  }, []);
+
+  // No background
+  useEffect(() => {
+    setBackgroundStyle({
+      background: 'none !important'
+    });
   }, []);
 
   // Drop effect animation for name letters
@@ -29,11 +37,10 @@ const Home = () => {
   }, []);
 
   return (
-    <div
+    <section
+      id="home"
       className="home"
-      // style={{
-      //   backgroundImage: `url(${bg})`,
-      // }}
+      style={backgroundStyle}
     >
       <div className="overlay"></div>
 
@@ -83,7 +90,7 @@ const Home = () => {
          {/* <div className="image-placeholder">Image Placeholder</div> */}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

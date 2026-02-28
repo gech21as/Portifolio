@@ -1,0 +1,9 @@
+@echo off
+echo Starting backend server...
+cd back
+echo Testing environment variables...
+node test-env.js
+echo.
+echo Starting server...
+node server.js
+pause

@@ -6,3 +6,5 @@ node_modules/
 
 # Logs
 npm-debug.log*
+front/src/assets/*.png
+front/src/assets/*.jpg

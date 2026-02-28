@@ -13,9 +13,7 @@ const App = () => {
       <Navbar />
       <main className="main-content">
         {/* Each section has an id for scroll links */}
-        <section id="home">
-          <Home />
-        </section>
+        <Home />
         <section id="about">
           <About />
         </section>
