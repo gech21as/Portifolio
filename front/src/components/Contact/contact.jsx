@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Contact.css";
 import { FaPaperPlane } from "react-icons/fa";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -25,6 +27,7 @@ const Contact = () => {
 
   const validateForm = () => {
     const newErrors = {};
+
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -51,7 +54,7 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -65,7 +68,7 @@ const Contact = () => {
       } else {
         showToast(data.message || "Failed to send message", "error");
       }
-    } catch (error) {
+    } catch {
       showToast("Server not reachable. Try again later.", "error");
     } finally {
       setLoading(false);
@@ -75,8 +78,6 @@ const Contact = () => {
   return (
     <section className="contact">
       <div className="contact-container">
-
-        {/* LEFT SIDE — FORM */}
         <div className="contact-left">
           <h2>Send Me a Message</h2>
 
@@ -92,9 +93,7 @@ const Contact = () => {
                 onChange={handleChange}
                 disabled={loading}
               />
-              {errors.email && (
-                <span className="error">{errors.email}</span>
-              )}
+              {errors.email && <span className="error">{errors.email}</span>}
             </div>
 
             <div className="form-group">
@@ -114,7 +113,9 @@ const Contact = () => {
             </div>
 
             <button type="submit" disabled={loading}>
-              {loading ? "Sending..." : (
+              {loading ? (
+                "Sending..."
+              ) : (
                 <>
                   <FaPaperPlane /> Send Message
                 </>
@@ -123,31 +124,26 @@ const Contact = () => {
           </form>
         </div>
 
-        {/* RIGHT SIDE — DESCRIPTION */}
         <div className="contact-right">
-          <h3>Let’s Work Together</h3>
+          <h3>Let&apos;s Work Together</h3>
           <p>
-            Feel free to reach out for any questions, ideas, or collaboration
-            opportunities. I’m always open to discussing new projects and
-            creative solutions.
+            I welcome conversations about internships, freelance work,
+            collaborative projects, and opportunities to keep growing as a
+            developer.
           </p>
           <p>
-            If you have a project in mind or need help bringing your idea to
-            life, don’t hesitate to contact me. for any inquiries, please use the form and there is my phone number and email address at the footer section.
+            If you have a project in mind or would like to discuss how I can
+            contribute, please use the form or contact me through the email and
+            phone number in the footer.
           </p>
           <p className="contact-note">
-            💡 <strong>Tip:</strong> Include your goals, timeline, and
-            expectations for a faster response.
+            <strong>Tip:</strong> Including your goals, timeline, and expected
+            scope will help me respond more effectively.
           </p>
         </div>
-
       </div>
 
-      {toast.show && (
-        <div className={`toast ${toast.type}`}>
-          {toast.message}
-        </div>
-      )}
+      {toast.show && <div className={`toast ${toast.type}`}>{toast.message}</div>}
     </section>
   );
 };

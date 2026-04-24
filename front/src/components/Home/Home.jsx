@@ -1,93 +1,58 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import "./Home.css";
-import bg from "../../assets/bg.jpg"; 
-import profile from "../../assets/pic.jpg"; 
+import profile from "../../assets/pic.jpg";
+
 const Home = () => {
   const [greeting, setGreeting] = useState("");
-  const [backgroundStyle, setBackgroundStyle] = useState({});
 
-  // Dynamic greeting
   useEffect(() => {
     const hour = new Date().getHours();
-    if (hour < 12) setGreeting("Good Morning -> ሰላም እንደምን አደርክ/አደርሽ");
-    else if (hour < 18) setGreeting("Good Afternoon -> እንደምን ዋልክ/ዋልሽ");
-    else setGreeting("Good Evening -> እንደምን አመሸህ/አመሸሽ");
-  }, []);
 
-  // No background
-  useEffect(() => {
-    setBackgroundStyle({
-      background: 'none !important'
-    });
-  }, []);
-
-  // Drop effect animation for name letters
-  useEffect(() => {
-    const letters = document.querySelectorAll(".drop-name span");
-    letters.forEach((letter, index) => {
-      letter.style.opacity = 0;
-      letter.style.transform = "translateY(-50px)";
-      setTimeout(() => {
-        letter.style.opacity = 1;
-        letter.style.transform = "translateY(0)";
-        letter.style.transition = "all 0.5s ease";
-      }, index * 300); // stagger effect
-    });
+    if (hour < 12) setGreeting("Good morning");
+    else if (hour < 18) setGreeting("Good afternoon");
+    else setGreeting("Good evening");
   }, []);
 
   return (
-    <section
-      id="home"
-      className="home"
-      style={backgroundStyle}
-    >
-      <div className="overlay"></div>
+    <section id="home" className="home">
+      <div className="home-bg-shape shape-one"></div>
+      <div className="home-bg-shape shape-two"></div>
+      <div className="home-grid"></div>
 
       <div className="home-content">
-        {/* Left Side - Text */}
         <div className="home-text">
-          <h2 className="greeting">{greeting}! 👋</h2>
-          <h1>
-            <span className="drop-name">
-              {/* First Name */}
-              {"I ".split("").map((char, i) => (
-                <span key={i}>{char}</span>
-              ))}
-            </span>{" "}
-            <span className="drop-name">
-              {/* First Name */}
-              {"am ".split("").map((char, i) => (
-                <span key={i}>{char}</span>
-              ))}
-            </span>{" "}
-            <span className="drop-name">
-              {/* First Name */}
-              {"Getahun".split("").map((char, i) => (
-                <span key={i}>{char}</span>
-              ))}
-            </span>{" "}
-            <span className="drop-name">
-              {/* Last Name */}
-              {"Asefa".split("").map((char, i) => (
-                <span key={i}>{char}</span>
-              ))}
-            </span>
-          </h1>
-          <h3>Computer  Engineer</h3>
-          {/* <a href="../About/About.jsx"><button className="explore-btn">Explore More</button></a> */}
-            <button className="explore-btn">
-              <Link to="about" smooth={true} duration={500} offset={-50}>
-                Explore More
-              </Link>
-            </button>
+          <p className="greeting">
+            {greeting} <span>Welcome to my portfolio</span>
+          </p>
+          <p className="hero-label">Portfolio</p>
+          <h1>Getahun Asefa</h1>
+          <h2 className="hero-role">
+            Computer Engineering Student with Interests in Full-Stack Development and Data Communication & Networking
+          </h2>
+          <p className="hero-summary">
+            I build responsive web applications and practical data
+            communication and networking solutions with a strong focus on
+            clarity, usability, reliability, and steady technical growth.
+          </p>
 
+          <div className="hero-highlights">
+            <span>Based in Ethiopia</span>
+            <span>Open to internships</span>
+            <span>Focused on full-stack development and data communication & networking</span>
+          </div>
+
+          <button className="explore-btn" type="button">
+            <Link to="about" smooth duration={500} offset={-50}>
+              Explore Portfolio
+            </Link>
+          </button>
         </div>
 
-        {/* Right Side - Image */}
         <div className="home-image">
-          <img src={profile} alt="Getahun Asefa" />
-         {/* <div className="image-placeholder">Image Placeholder</div> */}
+          <div className="image-frame">
+            <img src={profile} alt="Portrait of Getahun Asefa" />
+          </div>
         </div>
       </div>
     </section>

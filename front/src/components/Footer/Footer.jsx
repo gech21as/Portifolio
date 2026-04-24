@@ -1,14 +1,11 @@
 import React from "react";
 import "./Footer.css";
-import logo from "../../assets/logo.jpg";
 import {
   FaGithub,
   FaLinkedin,
   FaTelegram,
   FaFacebook,
-  FaInstagram,
   FaYoutube,
-  FaWhatsapp,
 } from "react-icons/fa";
 
 function Footer() {
@@ -17,52 +14,49 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        {/* Left Section */}
         <div className="footer-left">
+          <p className="footer-label">Let&apos;s Connect</p>
           <h3 className="footer-logo">Getahun Asefa</h3>
-          <p>Full Stack Developer | React | Node.js | MongoDB</p>
-          <p>
-            Email: 
+          <p className="footer-role">
+            Computer Engineering Student | Aspiring Full-Stack Developer |
+            Data Communication & Networking Enthusiast
+          </p>
+          <p className="footer-item">
+            <span>Email</span>
             <a href="mailto:getahunasefa277@gmail.com">
-              <strong className="email-g">getahunasefa277@gmail.com</strong>
+              <strong className="email-g"> getahunasefa277@gmail.com</strong>
             </a>
           </p>
 
-          <p>phone: <strong>+251921624752</strong></p>
+          <p className="footer-item">
+            <span>Phone</span> <strong>+251921624752</strong>
+          </p>
         </div>
 
-        {/* Right Section - Social Links */}
         <div className="footer-right">
-          <h4>Follow Me</h4>
+          <h4>Connect With Me</h4>
           <div className="social-links">
-            <a href="https://github.com/gech21as/" target="_blank" rel="noreferrer">
+            <a href="https://github.com/gech21as/" target="_blank" rel="noreferrer" aria-label="GitHub">
               <FaGithub />
             </a>
-            <a href="https://linkedin.com/" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/getahun-asefa" target="_blank" rel="noreferrer" aria-label="LinkedIn">
               <FaLinkedin />
             </a>
-            <a href="https://t.me/gech21as/" target="_blank" rel="noreferrer">
+            <a href="https://t.me/gech21as/" target="_blank" rel="noreferrer" aria-label="Telegram">
               <FaTelegram />
             </a>
-            <a href="https://web.facebook.com/getahun.asefa.568" target="_blank" rel="noreferrer">
+            <a href="https://web.facebook.com/getahun.asefa.568" target="_blank" rel="noreferrer" aria-label="Facebook">
               <FaFacebook />
             </a>
-            <a href="https://instagram.com/" target="_blank" rel="noreferrer">
-              <FaInstagram />
-            </a>
-            <a href="https://www.youtube.com/@gech21as" target="_blank" rel="noreferrer">
+            <a href="https://www.youtube.com/@gech21as" target="_blank" rel="noreferrer" aria-label="YouTube">
               <FaYoutube />
-            </a>
-            <a href="https://wa.me/" target="_blank" rel="noreferrer">
-              <FaWhatsapp />
             </a>
           </div>
         </div>
       </div>
 
-      {/* Bottom Line */}
       <div className="footer-bottom">
-        <p>© {currentYear} Getahun Asefa. All rights reserved.</p>
+        <p>&copy; {currentYear} Getahun Asefa. All rights reserved.</p>
       </div>
     </footer>
   );
