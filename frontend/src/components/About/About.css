@@ -1,0 +1,353 @@
+.about {
+  position: relative;
+  padding: 6rem 1.5rem;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 45%, #e2e8f0 100%);
+  color: #0f172a;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.06), transparent 26%);
+  pointer-events: none;
+}
+
+.about-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-header {
+  max-width: 760px;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+.about-label {
+  margin: 0 0 0.8rem;
+  color: #2563eb;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 28px;
+  padding: 2.2rem;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  margin-bottom: 2rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 55px rgba(15, 23, 42, 0.08);
+  border-color: rgba(37, 99, 235, 0.15);
+}
+
+.about-card h3 {
+  margin: 0 0 1.8rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+.about-card h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 32px;
+  height: 3px;
+  background: #2563eb;
+  border-radius: 2px;
+}
+
+.intro-card p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #475569;
+}
+
+.intro-card strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid rgba(37, 99, 235, 0.15);
+  margin: 0.5rem 0 0.5rem 0.5rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: calc(-1.5rem - 6px);
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  background: #10b981;
+  box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.18);
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-date {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #2563eb;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-content h4 {
+  margin: 0 0 0.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.timeline-institution {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Skills card */
+.skills-card {
+  margin-bottom: 0;
+}
+
+.skills-intro {
+  margin: 0 0 1.5rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.skills-list-vertical {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.skill-group h4 {
+  margin: 0 0 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.skills-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.skill-tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-tag-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.06);
+}
+
+.skill-tag-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-tag-item:hover .skill-tag-icon {
+  transform: scale(1.1) rotate(4deg);
+}
+
+.skill-tag-name {
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.skills-note-box {
+  margin: 2rem 0;
+  padding: 1.1rem 1.3rem;
+  border-radius: 18px;
+  background: rgba(37, 99, 235, 0.05);
+  border-left: 3px solid #2563eb;
+}
+
+.skills-note-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.skills-note-box strong {
+  color: #2563eb;
+}
+
+/* CV Button */
+.cv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.95rem 1.6rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2563eb, #0f172a);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.22);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cv-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.28);
+}
+
+.cv-arrow {
+  transition: transform 0.3s ease;
+}
+
+.cv-btn:hover .cv-arrow {
+  transform: translateY(2px);
+}
+
+@media (max-width: 960px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .about {
+    padding: 5rem 1rem;
+  }
+
+  .about-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-card {
+    padding: 1.5rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .intro-card p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .timeline {
+    gap: 1.5rem;
+  }
+
+  .timeline-content h4 {
+    font-size: 1.05rem;
+  }
+
+  .timeline-institution {
+    font-size: 0.88rem;
+  }
+
+  .skills-list-vertical {
+    gap: 1.5rem;
+  }
+
+  .skill-group h4 {
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .skill-tag-item {
+    padding: 0.4rem 0.7rem;
+    border-radius: 10px;
+  }
+
+  .skill-tag-name {
+    font-size: 0.85rem;
+  }
+
+  .skill-tag-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 0.95rem;
+  }
+
+  .skills-note-box {
+    margin: 1.5rem 0;
+    padding: 0.9rem 1.1rem;
+  }
+
+  .skills-note-box p {
+    font-size: 0.88rem;
+  }
+}

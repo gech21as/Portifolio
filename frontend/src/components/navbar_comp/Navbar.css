@@ -1,0 +1,219 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 1.5rem;
+  transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scrolled compact styling */
+.navbar.scrolled {
+  padding: 0.75rem 1.25rem;
+}
+
+.navbar-container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 30px rgba(15, 23, 42, 0.02);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Glassmorphism solidifies on scroll */
+.navbar.scrolled .navbar-container {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(148, 163, 184, 0.22);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.logo img {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid rgba(37, 99, 235, 0.16);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: #2563eb;
+  font-weight: 800;
+  margin-right: 0.15rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.95rem;
+  border-radius: 14px;
+  color: #475569;
+  font-size: 0.94rem;
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover styling */
+.nav-links li a:hover {
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* Active navigation tab highlight */
+.nav-links li a.active {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
+}
+
+.nav-icon {
+  font-size: 0.95rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover .nav-icon {
+  transform: scale(1.1);
+}
+
+.nav-links li a.active .nav-icon {
+  color: #ffffff;
+}
+
+/* Hamburger mobile menu button */
+.menu-icon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  color: #0f172a;
+  background: rgba(37, 99, 235, 0.08);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.menu-icon:hover {
+  background: rgba(37, 99, 235, 0.15);
+  color: #2563eb;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.85rem 1rem;
+  }
+
+  .navbar.scrolled {
+    padding: 0.85rem 1rem;
+  }
+
+  .navbar-container {
+    position: relative;
+    padding: 0.75rem 1rem;
+    border-radius: 20px;
+  }
+
+  .menu-icon {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+    padding: 0.8rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: slideDownMenu 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideDownMenu {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .nav-links li a {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0.8rem 0.95rem;
+    border-radius: 12px;
+  }
+  
+  .nav-links li a.active {
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo h2 {
+    font-size: 1.1rem;
+  }
+
+  .logo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+}
