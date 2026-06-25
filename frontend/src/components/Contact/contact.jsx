@@ -1,8 +1,17 @@
 import React, { useState } from "react";
 import "./Contact.css";
-import { FaPaperPlane, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaBriefcase } from "react-icons/fa";
+import {
+  FaPaperPlane,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaBriefcase,
+} from "react-icons/fa";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+/**
+ * ✅ FIXED: must match Vite env variable name
+ */
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +20,11 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
-  const [toast, setToast] = useState({ message: "", type: "", show: false });
+  const [toast, setToast] = useState({
+    message: "",
+    type: "",
+    show: false,
+  });
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -22,7 +35,10 @@ const Contact = () => {
 
   const showToast = (message, type) => {
     setToast({ message, type, show: true });
-    setTimeout(() => setToast({ message: "", type: "", show: false }), 3000);
+    setTimeout(
+      () => setToast({ message: "", type: "", show: false }),
+      3000
+    );
   };
 
   const validateForm = () => {
@@ -54,21 +70,32 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      /**
+       * ✅ FIXED API CALL
+       */
+      const response = await fetch(
+        `${API_BASE_URL}/api/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
 
       if (response.ok) {
-        showToast(data.message || "Message sent successfully!", "success");
+        showToast(
+          data.message || "Message sent successfully!",
+          "success"
+        );
         setFormData({ email: "", message: "" });
       } else {
         showToast(data.message || "Failed to send message", "error");
       }
-    } catch {
+    } catch (err) {
       showToast("Server not reachable. Try again later.", "error");
     } finally {
       setLoading(false);
@@ -85,32 +112,29 @@ const Contact = () => {
       </div>
 
       <div className="contact-container">
-        {/* Left: Message Form */}
         <div className="contact-card contact-left">
           <h3>Send Me a Message</h3>
 
           <form onSubmit={handleSubmit} className="contact-form">
             <div className="form-group">
-              <label htmlFor="email">Email Address *</label>
+              <label>Email Address *</label>
               <input
-                id="email"
                 type="email"
                 name="email"
-                placeholder="your.email@example.com"
                 value={formData.email}
                 onChange={handleChange}
                 disabled={loading}
               />
-              {errors.email && <span className="error">{errors.email}</span>}
+              {errors.email && (
+                <span className="error">{errors.email}</span>
+              )}
             </div>
 
             <div className="form-group">
-              <label htmlFor="message">Your Message *</label>
+              <label>Your Message *</label>
               <textarea
-                id="message"
                 name="message"
                 rows="6"
-                placeholder="Tell me about your project, ideas, or questions..."
                 value={formData.message}
                 onChange={handleChange}
                 disabled={loading}
@@ -120,76 +144,47 @@ const Contact = () => {
               )}
             </div>
 
-            <button type="submit" className="submit-btn" disabled={loading}>
+            <button type="submit" disabled={loading}>
               {loading ? (
                 "Sending..."
               ) : (
                 <>
-                  Send Message <FaPaperPlane className="submit-icon" />
+                  Send Message <FaPaperPlane />
                 </>
               )}
             </button>
           </form>
         </div>
 
-        {/* Right: Work Together info */}
         <div className="contact-card contact-right">
           <h3>Let's Work Together</h3>
-          <p className="contact-desc">
-            I welcome conversations about internships, freelance work,
-            collaborative projects, and opportunities to keep growing as a
-            developer.
-          </p>
 
           <div className="contact-info-list">
-            <div className="info-item">
-              <div className="info-icon-wrapper">
-                <FaEnvelope />
-              </div>
-              <div className="info-text">
-                <span className="info-title">Email</span>
-                <a href="mailto:getahunasefa277@gmail.com" className="info-value">
-                  getahunasefa277@gmail.com
-                </a>
-              </div>
+            <div>
+              <FaEnvelope />
+              <a href="mailto:getahunasefa277@gmail.com">
+                getahunasefa277@gmail.com
+              </a>
             </div>
 
-            <div className="info-item">
-              <div className="info-icon-wrapper">
-                <FaPhoneAlt />
-              </div>
-              <div className="info-text">
-                <span className="info-title">Phone</span>
-                <a href="tel:+251921624752" className="info-value">
-                  +251 921 624 752
-                </a>
-              </div>
+            <div>
+              <FaPhoneAlt />
+              <a href="tel:+251921624752">+251 921 624 752</a>
             </div>
 
-            <div className="info-item">
-              <div className="info-icon-wrapper">
-                <FaMapMarkerAlt />
-              </div>
-              <div className="info-text">
-                <span className="info-title">Location</span>
-                <span className="info-value">Ethiopia</span>
-              </div>
+            <div>
+              <FaMapMarkerAlt />
+              <span>Ethiopia</span>
             </div>
-          </div>
-
-          <div className="contact-note-box">
-            <div className="note-icon-wrapper">
-              <FaBriefcase />
-            </div>
-            <p>
-              <strong>Tip:</strong> Including your goals, timeline, and expected
-              scope will help me respond more effectively.
-            </p>
           </div>
         </div>
       </div>
 
-      {toast.show && <div className={`toast ${toast.type}`}>{toast.message}</div>}
+      {toast.show && (
+        <div className={`toast ${toast.type}`}>
+          {toast.message}
+        </div>
+      )}
     </section>
   );
 };
