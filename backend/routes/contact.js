@@ -3,8 +3,10 @@ import { sendContactMessage } from "../controllers/contactController.js";
 
 const router = express.Router();
 
-// POST /api/contact
+/**
+ * ✅ Route: POST /api/contact
+ * This will handle contact form submissions
+ */
 router.post("/", sendContactMessage);
 
-// 👇 THIS LINE IS VERY IMPORTANT
 export default router;

@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 /**
- * ✅ Add your production frontend URL here
+ * ✅ Production + local allowed origins
  */
 const allowedOrigins = (
   process.env.ALLOWED_ORIGINS ||
@@ -17,22 +17,29 @@ const allowedOrigins = (
   .split(",")
   .map((origin) => origin.trim());
 
+/**
+ * ✅ CORS CONFIG (SAFE + FLEXIBLE)
+ */
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // allow requests with no origin (like Postman or mobile apps)
+    origin: (origin, callback) => {
+      // allow tools like Postman or server-to-server calls
       if (!origin) return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
-      } else {
-        return callback(new Error("Not allowed by CORS"));
       }
+
+      console.log("❌ Blocked by CORS:", origin);
+      return callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
   })
 );
 
+/**
+ * Middleware
+ */
 app.use(express.json());
 
 /**
@@ -40,15 +47,21 @@ app.use(express.json());
  */
 app.use("/api/contact", contactRoutes);
 
+/**
+ * Health check route
+ */
 app.get("/", (req, res) => {
-  res.send("Backend API is running");
+  res.json({
+    status: "success",
+    message: "Backend API is running",
+  });
 });
 
 /**
- * ✅ Render uses process.env.PORT
+ * Render dynamic port
  */
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
