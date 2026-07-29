@@ -17,16 +17,14 @@ const allowedOrigins = (
   .split(",")
   .map((origin) => origin.trim());
 
-/**
- * ✅ CORS CONFIG (SAFE + FLEXIBLE)
- */
 app.use(
   cors({
     origin: (origin, callback) => {
       // allow tools like Postman or server-to-server calls
       if (!origin) return callback(null, true);
 
-      if (allowedOrigins.includes(origin)) {
+      // check if it's in allowedOrigins list or is a Vercel app
+      if (allowedOrigins.includes(origin) || origin.endsWith(".vercel.app") || origin.startsWith("https://portifolio-")) {
         return callback(null, true);
       }
 

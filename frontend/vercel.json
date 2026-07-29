@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://portifolio-c9qa.onrender.com/api/:path*"
+    },
+    {
+      "source": "/((?!assets/|cv/|favicon.ico).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
