@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import profile from "../../assets/pic.jpg";
-import { FaCode, FaNetworkWired, FaMapMarkerAlt, FaBriefcase } from "react-icons/fa";
+import { FaCode, FaNetworkWired, FaMapMarkerAlt, FaBriefcase, FaHeadset } from "react-icons/fa";
 
 const Home = () => {
   const [greeting, setGreeting] = useState("");
@@ -34,8 +34,7 @@ const Home = () => {
           </h2>
           
           <p className="hero-summary">
-            Computer Engineering graduate specializing in building responsive web applications 
-            and designing reliable data communication &amp; networking systems.
+            Computer Engineering graduate with hands-on experience in IT Support teams, specializing in building responsive web applications and designing reliable networking systems.
           </p>
 
           <div className="hero-highlights">
@@ -44,12 +43,16 @@ const Home = () => {
               Based in Ethiopia
             </span>
             <span className="highlight-item">
-              <FaBriefcase className="highlight-icon" />
-              Open to internships
+              <FaCode className="highlight-icon" />
+              Full-Stack Web Development
+            </span>
+            <span className="highlight-item">
+              <FaHeadset className="highlight-icon" />
+              IT Support &amp; Troubleshooting
             </span>
             <span className="highlight-item">
               <FaNetworkWired className="highlight-icon" />
-              Networking &amp; Infrastructure Focus
+              Networking &amp; Infrastructure
             </span>
           </div>
 

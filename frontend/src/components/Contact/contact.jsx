@@ -6,12 +6,17 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
   FaBriefcase,
+  FaGithub,
+  FaLinkedin,
+  FaTelegram,
+  FaFacebook,
+  FaYoutube,
 } from "react-icons/fa";
 
 /**
- * ✅ FIXED: must match Vite env variable name
+ * ✅ Dynamically fall back to proxy in development, use env var in production
  */
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL = import.meta.env.DEV ? "" : (import.meta.env.VITE_API_URL || "");
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -121,6 +126,7 @@ const Contact = () => {
               <input
                 type="email"
                 name="email"
+                placeholder="youremail@example.com"
                 value={formData.email}
                 onChange={handleChange}
                 disabled={loading}
@@ -135,6 +141,7 @@ const Contact = () => {
               <textarea
                 name="message"
                 rows="6"
+                placeholder="Hi Getahun, I'd like to reach out regarding..."
                 value={formData.message}
                 onChange={handleChange}
                 disabled={loading}
@@ -144,12 +151,14 @@ const Contact = () => {
               )}
             </div>
 
-            <button type="submit" disabled={loading}>
+            <button type="submit" className="submit-btn" disabled={loading}>
               {loading ? (
-                "Sending..."
+                <span className="btn-spinner-text">
+                  <span className="spinner"></span> Sending...
+                </span>
               ) : (
                 <>
-                  Send Message <FaPaperPlane />
+                  Send Message <FaPaperPlane className="submit-icon" />
                 </>
               )}
             </button>
@@ -158,23 +167,103 @@ const Contact = () => {
 
         <div className="contact-card contact-right">
           <h3>Let's Work Together</h3>
+          <p className="contact-desc">
+            Whether you want to discuss a new software project, ask about computer networking architectures, or just connect, feel free to reach out. I'll get back to you as soon as possible!
+          </p>
 
           <div className="contact-info-list">
-            <div>
-              <FaEnvelope />
-              <a href="mailto:getahunasefa277@gmail.com">
-                getahunasefa277@gmail.com
+            <div className="info-item">
+              <div className="info-icon-wrapper">
+                <FaEnvelope />
+              </div>
+              <div className="info-text">
+                <span className="info-title">Email</span>
+                <a href="mailto:getahunasefa277@gmail.com" className="info-value">
+                  getahunasefa277@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div className="info-item">
+              <div className="info-icon-wrapper">
+                <FaPhoneAlt />
+              </div>
+              <div className="info-text">
+                <span className="info-title">Phone</span>
+                <a href="tel:+251921624752" className="info-value">
+                  +251 921 624 752
+                </a>
+              </div>
+            </div>
+
+            <div className="info-item">
+              <div className="info-icon-wrapper">
+                <FaMapMarkerAlt />
+              </div>
+              <div className="info-text">
+                <span className="info-title">Location</span>
+                <span className="info-value">Addis Ababa, Ethiopia</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="contact-note-box">
+            <div className="note-icon-wrapper">
+              <FaBriefcase />
+            </div>
+            <p>
+              I am open to software engineering positions, front-end/back-end roles, and networking opportunities.
+            </p>
+          </div>
+
+          <div className="contact-socials">
+            <h4>Find Me On</h4>
+            <div className="social-bubbles">
+              <a
+                href="https://github.com/gech21as/"
+                target="_blank"
+                rel="noreferrer"
+                className="social-bubble github"
+                aria-label="GitHub"
+              >
+                <FaGithub />
               </a>
-            </div>
-
-            <div>
-              <FaPhoneAlt />
-              <a href="tel:+251921624752">+251 921 624 752</a>
-            </div>
-
-            <div>
-              <FaMapMarkerAlt />
-              <span>Ethiopia</span>
+              <a
+                href="https://www.linkedin.com/in/getahun-asefa"
+                target="_blank"
+                rel="noreferrer"
+                className="social-bubble linkedin"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                href="https://t.me/gech21as/"
+                target="_blank"
+                rel="noreferrer"
+                className="social-bubble telegram"
+                aria-label="Telegram"
+              >
+                <FaTelegram />
+              </a>
+              <a
+                href="https://web.facebook.com/getahun.asefa.568"
+                target="_blank"
+                rel="noreferrer"
+                className="social-bubble facebook"
+                aria-label="Facebook"
+              >
+                <FaFacebook />
+              </a>
+              <a
+                href="https://www.youtube.com/@gech21as"
+                target="_blank"
+                rel="noreferrer"
+                className="social-bubble youtube"
+                aria-label="YouTube"
+              >
+                <FaYoutube />
+              </a>
             </div>
           </div>
         </div>

@@ -44,7 +44,7 @@ function Footer() {
           <div className="footer-brand">
             <h3 className="footer-logo"><span>Getahun</span>Asefa</h3>
             <p className="footer-tagline">
-              Computer Engineering Graduate | Aspiring Full-Stack Developer | Data Communication & Networking Enthusiast
+              Computer Engineering Graduate | Full-Stack Developer &amp; IT Support Specialist | Data Communication &amp; Networking
             </p>
             <div className="social-links">
               <a href="https://github.com/gech21as/" target="_blank" rel="noreferrer" aria-label="GitHub">

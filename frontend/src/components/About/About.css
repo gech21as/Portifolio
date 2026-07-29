@@ -44,21 +44,22 @@
 }
 
 .about-card {
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 28px;
   padding: 2.2rem;
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.05);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   margin-bottom: 2rem;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .about-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 25px 55px rgba(15, 23, 42, 0.08);
-  border-color: rgba(37, 99, 235, 0.15);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-color: rgba(37, 99, 235, 0.18);
 }
 
 .about-card h3 {
@@ -76,10 +77,15 @@
   position: absolute;
   left: 0;
   bottom: -6px;
-  width: 32px;
+  width: 24px;
   height: 3px;
-  background: #2563eb;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
   border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.about-card:hover h3::after {
+  width: 48px;
 }
 
 .intro-card p {
@@ -98,32 +104,44 @@
 .timeline {
   position: relative;
   padding-left: 1.5rem;
-  border-left: 2px solid rgba(37, 99, 235, 0.15);
+  border-left: 2px solid rgba(37, 99, 235, 0.12);
   margin: 0.5rem 0 0.5rem 0.5rem;
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .timeline-item {
   position: relative;
+  padding: 1rem 1.25rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(148, 163, 184, 0.15);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
 }
 
 .timeline-dot {
   position: absolute;
-  left: calc(-1.5rem - 6px);
-  top: 6px;
-  width: 10px;
-  height: 10px;
+  left: calc(-1.5rem - 7px);
+  top: 1.8rem;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: #2563eb;
-  border: 2px solid #ffffff;
+  border: 3px solid #ffffff;
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .timeline-item:hover .timeline-dot {
   background: #10b981;
-  box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.18);
+  box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.22);
+  transform: scale(1.15);
 }
 
 .timeline-content {
@@ -244,6 +262,30 @@
   color: #2563eb;
 }
 
+/* Certifications list styling */
+.cert-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.cert-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem !important;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  transition: all 0.25s ease;
+}
+
+.cert-list li:hover {
+  transform: translateX(4px);
+  background: #ffffff;
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 6px 15px rgba(15, 23, 42, 0.03);
+}
+
 /* CV Button */
 .cv-btn {
   display: inline-flex;
@@ -307,7 +349,11 @@
   }
 
   .timeline {
-    gap: 1.5rem;
+    gap: 1.2rem;
+  }
+
+  .timeline-item {
+    padding: 0.75rem 1rem;
   }
 
   .timeline-content h4 {

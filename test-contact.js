@@ -1,5 +1,4 @@
 // Simple test to check contact endpoint
-import fetch from 'node-fetch';
 
 const testData = {
   email: 'test@example.com',
